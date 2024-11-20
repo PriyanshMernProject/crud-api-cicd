@@ -81,3 +81,13 @@ export const deletePlayer = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const AllDuplicatePlayers = async (req, res) => {
+  try {
+    const players = await Player.find({});
+    console.log(players);
+    res.status(200).json({ data: players });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
